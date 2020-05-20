@@ -19,8 +19,9 @@ defined('ABSPATH') || exit;
 
 global $product;
 
-$count = get_post_meta($product->get_id(), 'count', 1);
-echo $count ? $count : 0;
+// Get count of reviews
+$count = get_post_meta($product->get_id(), 'counter', 1);
+
 // Ensure visibility.
 if (empty($product) || ! $product->is_visible()) {
     return;
@@ -28,6 +29,13 @@ if (empty($product) || ! $product->is_visible()) {
 ?>
 <li <?php wc_product_class('', $product); ?>>
 	<?php
+    /*
+    Print counter
+    its can be  do without rewriting template
+    hooked on woocommerce_before_shop_loop_item as examplee
+    but in test task say that i must rewrite template
+    */
+    echo $counter;
     /**
      * Hook: woocommerce_before_shop_loop_item.
      *
