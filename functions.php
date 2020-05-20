@@ -7,7 +7,7 @@ function storefront_child_counter()
 
     if ('product' === get_post_type($post) && !isset($_COOKIE['product_' . $post->ID])) {
         setcookie('product_' . $post->ID, 1);
-        $count = get_post_meta($post->ID, 'counter', 1);
+        $count = absint(get_post_meta($post->ID, 'counter', 1));
         if (empty($count)) {
             $count = 0;
         }
