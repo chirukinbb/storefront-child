@@ -35,7 +35,7 @@ if (empty($product) || ! $product->is_visible()) {
     hooked on woocommerce_before_shop_loop_item as examplee
     but in test task say that i must rewrite template
     */
-    echo $counter;
+    echo esc_html($counter);
     /**
      * Hook: woocommerce_before_shop_loop_item.
      *

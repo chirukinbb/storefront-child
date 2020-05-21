@@ -46,6 +46,6 @@ function storefront_child_column_content($column, $post_id)
 {
     if ($column === 'counter' || $column === 'last_date') {
         $value = get_post_meta($post_id, $column, 1);
-        echo $value ? $value : 0;
+        echo !empty($value) ? esc_html($value) : 0;
     }
 }
